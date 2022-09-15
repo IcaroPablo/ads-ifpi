@@ -1,0 +1,73 @@
+1. Uma classe é uma definição do que virá a se tornar um objeto, uma descrição de uma instância, assim como uma planta baixa descreve um edifício e assim como um esquema define uma máquina. Uma classe contém tipos de valores e comportamentos, mas a forma como eles serão usados só poderá ser determinada com a utilização de um objeto, uma entidade usável.
+
+2. Atributos são descrições de estado de um objeto, eles podem conter valores sobre alguma característica do objeto. Métodos dizem respeito a "comportamentos" e "processamentos" realizados pelo objeto, normalmente utilziando seus atributos, por exemplo, um cachorro teria atributos como "cor do pelo", "altura" e "tamanho do pelo" e métodos como "latir", "correr" e "buscar um graveto".
+
+3. Peso ------------------> sistema para acompanhar pacientes em um hospital
+   Tipo de CNH -----------> avaliação para uma vaga de emprego como motorista
+   Tipo sanguíneo --------> cadastro de doadores para um banco de sange
+   habildiade destra -----> instruções de uso de um instrumento musical ou de trabalho
+   percentual de gordura -> acompanhamento nutricional
+   saldo em conta --------> sistemas de transferência em um banco
+   etinia ----------------> pesquisa para censo demográfico
+   
+4. a. Um sistema com essa relação é possível e provavelmente funcionaria se bem gerenciado, mas a melhor relação seria um objeto pessoa possuir um atributo conta por razões semânticas.
+   b. Sim, uma pessoa poderia ter mais de uma conta, nesse caso seu atributo "contas" seria uma array de contas.
+   
+5. Aluno, professor, disciplina, quadro de horários, curso
+
+6. jogo: Vôlei
+   objetos:
+       jogadores:
+           atributos:
+               altura
+               função
+               anos de experiência
+           métodos:
+               sacar
+               receber
+               atacar
+               bloquear
+       campo:
+           atributos:
+               tipo de campo
+               altura da rede
+               regras
+           métodos:
+               montar rede
+               desmontar rede
+               alterar as posições dos jogadores
+       árbitro:
+           atributos:
+               nacionalidade
+               anos de experiência
+           métodos:
+               observar o jogo
+               contar os pontos
+               julgar lances
+       bola:
+           atributos:
+               tamanho
+               cor
+           métodos:
+               encher
+               secar
+       treinador:
+           atributos:
+               anos de experiência
+           métodos:
+               substituir jogadores
+       time:
+           atributos:
+               jogadores
+               treinador
+           métodos:
+               entrar em campo
+               sair de campo
+               
+7. vide retangulo.ts
+
+8. vide circulo.ts
+
+9. vide situacao_financeira.ts
+
+10. vide uml.pdf
