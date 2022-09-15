@@ -7,7 +7,7 @@ typedef struct pilha {
 	struct pilha* prox;	
 } Pilha;
 
-Pilha* create_item(char valor) {
+Pilha* create_item(int valor) {
 	Pilha* item = (Pilha*) malloc(sizeof(Pilha));
 	item->value = valor;
 	item->prox = NULL;
@@ -26,9 +26,7 @@ void push(int new_value, Pilha* pilha) {
 }
 
 Pilha* create_stack() {
-	Pilha* new_stack = (Pilha*) malloc(sizeof(Pilha));
-	new_stack->value = 0;
-	new_stack->prox = NULL;
+	Pilha* new_stack = create_item(0);
 
 	return new_stack;
 }
@@ -39,8 +37,10 @@ bool stack_is_empty(Pilha* pilha) {
 
 int pop(Pilha* pilha) {
 	if(!stack_is_empty(pilha)) {
-		int value = pilha->prox->value;
+		Pilha* temp = pilha->prox;
+		int value = temp->value;
 		pilha->prox = pilha->prox->prox;
+		free(temp);
 		return value;
 	}
 
