@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct pilha {
 	int value;
@@ -10,6 +11,8 @@ Pilha* create_item(char valor) {
 	Pilha* item = (Pilha*) malloc(sizeof(Pilha));
 	item->value = valor;
 	item->prox = NULL;
+
+	return item;
 }
 
 void push(int new_value, Pilha* pilha) {
@@ -24,7 +27,7 @@ void push(int new_value, Pilha* pilha) {
 
 Pilha* create_stack() {
 	Pilha* new_stack = (Pilha*) malloc(sizeof(Pilha));
-	new_stack->value = NULL;
+	new_stack->value = 0;
 	new_stack->prox = NULL;
 
 	return new_stack;
