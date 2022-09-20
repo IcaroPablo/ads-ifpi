@@ -1,0 +1,1 @@
+Na tipagem dinâmica é possível ocorrerem erros de processamento onde se espera um tipo para realizar uma determinada operação, mas é obtido outro.

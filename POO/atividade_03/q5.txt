@@ -1,0 +1,1 @@
+O tipo any não é necessariamente benéfico além do seu aspecto semântico, já que usar o tipo any seria o mesmo que declarar uma variável sem tipo em javascript puro, porém, ao ser usado demonstra claramente o propósito do desenvolvedor em estabelecer deliberadamente que aquela variável deve receber tipagem dinâmica, e não que foi um descuido ou qualquer tipo de negligência.

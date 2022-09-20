@@ -1,0 +1,1 @@
+Tipagem dinâmica é a atribuição de tipos a uma variável durante a execução do programa, tipagem estática é a atribuição de tipos a uma variável durante a etapa de compilação ou de interpretação do código escrito.

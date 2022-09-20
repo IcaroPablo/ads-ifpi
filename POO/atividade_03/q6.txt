@@ -1,0 +1,6 @@
+A tipagem do typescript é fraca, mas não por esse motivo, afinal tanto inteiros como pontos flutuantes são do mesmo tipo, number. Mas ela é fraca por transfomar os tipos antes de fazer algumas operações, por exemplo, concatenação de strings é possível com o tipo number.
+
+let a : number = 1
+let b : string = "string"
+
+console.log(a + " " + b)
