@@ -54,3 +54,12 @@ char get_top(Pilha* pilha){
 
 	return pilha->prox->value;
 }
+
+void destroy(Pilha* pilha) {
+	if(!stack_is_empty(pilha)) {
+		pop(pilha);
+		destroy(pilha);
+	} else {
+		free(pilha);
+	}
+}
