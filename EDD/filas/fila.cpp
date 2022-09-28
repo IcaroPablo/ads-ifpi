@@ -63,7 +63,7 @@ int main() {
 
     Fila* fila_teste  = new Fila;
 
-    cout << "pilha vazia ?: " << fila_teste->isEmpty() << endl;
+    cout << "fila vazia ?: " << fila_teste->isEmpty() << endl;
 
     cout << "inserir 5 valores: ";
 
@@ -74,14 +74,15 @@ int main() {
     }
 
     cout << "pop :" << fila_teste->pop() << endl;
+    cout << "pop :" << fila_teste->pop() << endl;
 
-    cout << "pilha vazia ?: " << fila_teste->isEmpty() << endl;
+    cout << "fila vazia ?: " << fila_teste->isEmpty() << endl;
 
-    cout << "popAll";
+    cout << "popAll" << endl;
     
     fila_teste->popAll();
 
-    cout << "pilha vazia ?: " << fila_teste->isEmpty() << endl;
+    cout << "fila vazia ?: " << fila_teste->isEmpty() << endl;
 
     return 0;
  
