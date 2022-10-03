@@ -1,0 +1,1 @@
+Sim, ocorrerá um erro pois nenhum valor inicial foi atribuído à variável e ela não está recebendo nenhum valor no construtor da classe, além disso, outro erro ocorrerá pois estamos nos referindo a um atributo da classe sem usar a expressão "this".

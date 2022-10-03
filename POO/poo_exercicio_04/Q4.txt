@@ -1,0 +1,48 @@
+a)
+
+(I)
+
+let c1: Conta = new Conta("1",100);
+let c2: Conta = new Conta("2",100);
+
+as contas c1 e c2 são instanciadas
+
+(II)
+
+let c3: Conta;
+
+a veriável c3 do tipo conta é criada, mas ela não é inicializada
+
+(III)
+
+c1 = c2;
+
+c1 e c2 agora referenciam o mesmo objeto em memória (c2)
+
+(IV)
+
+c3 = c1;
+
+c3 foi inicializada e agora referencia o mesmo objeto e memória que c1 e c2
+
+(V)
+
+c1.sacar(10);
+
+o saldo de c1 (e c2 e c3) diminui em 10, ou seja, fica 90.
+
+(VI)
+
+c1.transferir(c2,50);
+
+c1 e c2 refereciam o mesmo objeto então esse valor será retirado de uma conta e recebido por ela mesma, inalterando o saldo.
+
+(VII)
+
+console.log(c1.consultarSaldo());
+console.log(c2.consultarSaldo());
+console.log(c3.consultarSaldo());
+
+o saldo de todos os "prints" será o mesmo, pois todas as variáveis referenciam o mesmo objeto com saldo 90.
+
+b) A memória alocada para esse objeto será liberada pelo garbage collector do runtime de javascript.

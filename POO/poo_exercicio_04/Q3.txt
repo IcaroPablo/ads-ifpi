@@ -1,0 +1,1 @@
+O erro de compilação ocorre pois a classe Radio deve receber o valor do atributo especificado no seu construtor. Para soluconar esse problema bastaria passar algum valor inteiro na instanciação da classe.

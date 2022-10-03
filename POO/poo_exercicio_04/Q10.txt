@@ -1,0 +1,1 @@
+A abordagem que eu considero correta é a da questão 6f, apesar de ser uma abordagem ainda rudimentar e insuficiente para casos mais complexos, ela só completará sua ação se validações prévias forem cumpridas, assim, é possível garantir mais consistência no código e no processamento de informações
