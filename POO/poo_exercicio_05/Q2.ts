@@ -28,7 +28,7 @@ class Microblog {
 
     }
 
-    obterIndexDaConta(numero : number) : number {
+    obterIndexDaPostagem(numero : number) : number {
 
         for(let i : number = 0; i < this.postagens.length; i++) {
             if(this.postagens[i].id == numero) return i;
@@ -39,7 +39,7 @@ class Microblog {
 
     excluir(numero : number) : void {
 
-        let index = this.obterIndexDaConta(numero);
+        let index = this.obterIndexDaPostagem(numero);
         this.postagens.splice(index, 1);
 
     }
@@ -68,7 +68,7 @@ class Microblog {
     
     curtir(id : number) : void {
 
-        let index : number = this.obterIndexDaConta(id);
+        let index : number = this.obterIndexDaPostagem(id);
         this.postagens[index].curtir();
 
     }
