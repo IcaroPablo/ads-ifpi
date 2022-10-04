@@ -1,0 +1,42 @@
+Os processos são representados por números do tipo p*10 + t, onde t é seu tempo de execução.
+
+17 -> precisa de 7 segundos para ser processado
+25 -> precisa de 5 segundos para ser processado
+39 -> precisa de 9 segundos para ser processado
+46 -> precisa de 6 segundos para ser processado
+
+A ordem dos processos na fila é:
+
+17 -> 25 -> 39 -> 46
+
+O tempo limite de processamento é 3 segundos.
+
+A seguir, está representada a fila em todas as iterações do código:
+
+17 -> 25 -> 39 -> 46
+
+25 -> 39 -> 46 -> 14
+
+39 -> 46 -> 14 -> 22
+
+46 -> 14 -> 22 -> 36
+
+14 -> 22 -> 36 -> 43
+
+22 -> 36 -> 43 -> 11
+
+processo 2 concluído
+
+43 -> 11 -> 33
+
+processo 4 concluído
+
+11 -> 33
+
+processo 1 concluído
+
+33
+
+processo 3 concluído
+
+A ordem de conclusão dos processos é 2, 4, 1 e 3.
