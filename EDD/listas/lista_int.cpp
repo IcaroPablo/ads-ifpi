@@ -1,83 +1,119 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-typedef struct item {
-	int id;
-	char valor[50];	
-} Item; 
+typedef struct aluno {
+	int mat;
+	char nome[100];	
+} Aluno; 
 
-Item list[30];
+typedef struct turma {
+	int max;
+	int qa;
+	Aluno alunos[];
+} Turma;
 
-int maximo = sizeof(list)/sizeof(list[0]);
+Turma* criar_turma(int max) {
 
-int qa = 0;
+	Aluno alunos[max];
+	Turma* turma = (Turma*) malloc(sizeof(Turma) + sizeof(Aluno)*max);
 
-void incluirDesordenado(Item e) {
+	turma->max = max;
+	turma->qa = 0;
+
+	return turma;
+}
+
+void incluirDesordenado(Turma *turma) {
 
 	int cont;
 
-	printf("\nInserir Novo Item:");
+	printf("\nInserir novo aluno:");
 	do {
-		if (qa < maximo) {
-			printf("\ninforme o id do item: ");
-			scanf("%d",&list[qa].id);
-			printf("\ninforme o valor do item: ");
-			scanf("%s",list[qa].valor);
-			qa++;
-			printf("\n\nItem Inserido com Sucesso!!!\n");
+		if (turma->qa < turma->max) {
+			printf("\nInforme a matrícula do aluno: ");
+			scanf("%d", &turma->alunos[++turma->qa-1].mat);
+
+			printf("\nInforme o nome do aluno: ");
+			scanf("%s", turma->alunos[turma->qa-1].nome);
+
+			printf("\nAluno Inserido com Sucesso :D\n");
 		} else { 
-			printf("\n\n Nao Pode Inserir - lista cheia!!!\n");
+			printf("\nA turma já está cheia :(\n");
 			break;
 		}
-		printf("\n\n Inserir outro(1-sim/2-nao)? ");
-		scanf("%d",&cont);
+
+		printf("\nInserir outro Aluno ? (1-sim / 2-nao): ");
+		scanf("%d", &cont);
 	} while (cont == 1);
 
 }
 
-int procura(int id) {	
-	for(int i = 0; i < maximo; i++) {
-		if(list[i].id == id) {
+int procura(int mat, Turma* turma) {	
+	for(int i = 0; i < turma->max; i++) {
+		if(turma->alunos[i].mat == mat) {
 			return i;
 		}
 	}
 	return -1;
 }
 
-void mostrar(int pos) {
+void mostrar(int pos, Turma* turma) {
 
-	if(pos < maximo) {
-		printf("elemento: %d\nid: %d\nvalor: %s", pos, list[pos].id, list[pos].valor);
-	}
-
-}
-
-void consultar(int id) {	
-	int pos = procura(id);
-	if(pos > -1) {
-		mostrar(pos);
+	if(pos < turma->qa) {
+		printf("Aluno: %d\nMatrícula: %d\nNome: %s", pos, turma->alunos[pos].mat, turma->alunos[pos].nome);
 	} else {
-		printf("\nelemento não existe");
+		printf("\nNão há nenhum aluno nesta posição");
+	}
+
+}
+
+void consultar(int mat, Turma* turma) {	
+	int pos = procura(mat, turma);
+	if(pos > -1) {
+		mostrar(pos, turma);
+	} else {
+		printf("\nEste aluno não existe");
 	}
 }
 
-void remover() {
+//estrat�gia 1: colocar o ultimo elemento da lista na posi��o do elemento removido
+void remover00(int pos, Turma* turma) {
 
-	int matprocurada, i, cont, achou, resp;
+	turma->alunos[pos] = turma->alunos[turma->qa-1];
+	turma->qa--;
+
+}
+
+//estrat�gia 2: mover TODOS os elementos que est�o AP�S  o elemento que deve ser removido UMA POSI��O A FRENTE.
+void remover01(int pos, Turma* turma) {
+
+	if(pos == turma->max-1) turma->qa--;
+	else {
+		for(int i = pos; i <= turma->qa; i++) {
+			turma->alunos[i] = turma->alunos[i+1];
+		}
+	}
+	turma->qa--;
+}
+
+void remover(Turma* turma) {
+
+	int mat, i, cont, achou, resp;
 	do {
-		printf("\nRemover Item:");
-		printf("\nId do Item: ");
-		scanf("%d",&matprocurada);
+		printf("\n\nRemover aluno da turma:");
+		printf("\nMatrícula do aluno: ");
+		scanf("%d", &mat);
 
-		achou = procura(matprocurada);
+		achou = procura(mat, turma);
 		if (achou != -1) {
-			mostrar(achou);
-			printf("\nDeseja remover o item (1-sim/2-nao)? ");
+			mostrar(achou, turma);
+			printf("\nDeseja remover este aluno (1-sim/2-nao)? ");
 			scanf("%d",&resp);
 
 			if (resp==1) {
-				remover00(achou);
-				// remover01(achou);
+				// remover00(achou, turma);
+				remover01(achou, turma);
 
 				printf("\n\nitem removido com Sucesso!!!\n");
 			} else {
@@ -94,32 +130,16 @@ void remover() {
 
 }
 
-//estrat�gia 1: colocar o ultimo elemento da lista na posi��o do elemento removido
-void remover00(int pos) {
-
-	list[pos] = list[qa];
-	qa--;
-
-}
-
-//estrat�gia 2: mover TODOS os elementos que est�o AP�S  o elemento que deve ser removido UMA POSI��O A FRENTE.
-void remover01(int pos) {
-
-	if(pos == maximo-1) qa--;
-	else {
-		for(int i = pos; i <= qa; i++) {
-			list[i] = list[i+1];
-		}
-	}
-
-	qa--;
-
-}
-
 int main() {
-	strcpy(list[0].valor, "oi");
-	printf("%s", list[0].valor);
-	printf("%s", list[1].valor);
+	Turma *turma = criar_turma(30);
+
+	incluirDesordenado(turma);
+
+	mostrar(0, turma);
+
+	remover(turma);
+
+	mostrar(0, turma);
 
 	return 0;
 }
