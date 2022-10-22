@@ -22,5 +22,5 @@ main() {
     add_last(4, lista);
     add_last(5, lista);
 
-	printf("%d\n", sum(0, lista)); // 5
+	printf("%d\n", sum(0, lista)); // 15
 }
