@@ -83,7 +83,7 @@ void add_first(int value, List* list) {
     }
 }
 
-int remove(int value, List* list) {
+int remove_value(int value, List* list) {
 
     List* tormv = find(value, list);
 
