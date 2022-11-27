@@ -26,7 +26,7 @@ class Queue: public queue<T> {
         
         void simulaPilha(T novo) {
             queue<T> aux;
-            while(!fila.empty()){
+            while(!fila.empty()) {
                 aux.push(fila.front());
                 fila.pop();
             }
