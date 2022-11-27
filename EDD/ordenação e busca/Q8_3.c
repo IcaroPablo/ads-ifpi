@@ -13,8 +13,10 @@ void empurra(int v[], int n) {
 }
 
 void bubble_sort(int v[], int n) {
-    for(int i = 0; i < n; i++)
+    if(n > 0) {
         empurra(v, n);
+        bubble_sort(v, n-1);
+    }
 }
 
 int main() {
