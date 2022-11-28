@@ -1,3 +1,5 @@
+// dupla: Ícaro Pablo de Oliveira Andrade e João Victor Sousa Oliveira
+
 #include <time.h>
 #include <stdio.h>
 
